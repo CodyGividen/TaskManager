@@ -1,59 +1,43 @@
 package com.company;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Scanner;
 
-public class TaskInformation {
-    private String title;
-    private String date;
-    private String details;
-    private String completeByDate;
-    private String finishDate;
-    protected Scanner input = new Scanner(System.in);
+import java.util.ArrayList;
+import java.util.List;
+
+public class TaskInformation extends Tasks{
     protected List<TaskInformation> newTask = new ArrayList<TaskInformation>();
     protected List<TaskInformation> completedTasks = new ArrayList<TaskInformation>();
     protected List<TaskInformation> incompleteTasks = new ArrayList<TaskInformation>();
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("MM/DD/yy HH:mm:ss");
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        System.out.println("What is the Title of your task?");
-        title = input.nextLine();
-        newTask.add(title);
-    }
+    String task;
 
-    public String getDate() {
-        Calendar calendar = Calendar.getInstance();
-        System.out.println("You created your task on " + dateFormat.format(calendar.getTime()));
-    }
 
-    public String getDetails() {
-        return details;
-    }
+    protected void addTask(){
+        TaskInformation taskInformation = new TaskInformation();
+        taskInformation.setTitle();
+        taskInformation.setDetails();
+        taskInformation.setDate();
+        taskInformation.setFinishByDate();
 
-    public void setDetails(String details) {
-        this.details = details;
     }
+    protected void removeTask(){
 
-    public String getCompleteByDate() {
-        return completeByDate;
     }
+    protected void viewTask(){
 
-    public void setCompleteByDate(String completeByDate) {
-        this.completeByDate = completeByDate;
     }
+    protected void selectViewTasks(){
 
-    public String getFinishDate() {
-        return finishDate;
     }
+    protected void addIncompleteList(){
 
-    public void setFinishDate(String finishDate) {
-        this.finishDate = finishDate;
     }
+    protected void addCompleteList(){
+
+    }
+//    public void fullTask(){
+//        task = (getTitle() + " " + getDate() + " " + getDetails() + " " + getFinishByDate());
+//        //newTask.add();
+//    }
 }

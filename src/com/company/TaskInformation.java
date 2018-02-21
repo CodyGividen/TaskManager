@@ -21,16 +21,17 @@ public class TaskInformation extends Tasks {
     }
 
     protected void removeTask() {
+        newTask.remove(input.nextInt() - 1);
 
     }
 
     protected void viewTask() {
         int index = 1;
         for (Tasks task : newTask) {
-            System.out.println(index++ + ". " + task.getTitle() + "\n" +
-                    "" + task.getDetails() + "\n" +
-                    "" + task.getDate() + "\n" +
-                    "" + task.getFinishByDate());
+            System.out.println(index++ + ". Title: " + task.getTitle() + "\n" +
+                    "Details: " + task.getDetails() + "\n" +
+                    "Start date: " + task.getDate() + "\n" +
+                    "Finish by date: " + task.getFinishByDate());
 
         }
 //    protected void selectViewTasks(){

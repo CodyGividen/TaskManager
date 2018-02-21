@@ -26,6 +26,8 @@ public class TaskManagerMenu{
                 break;
             case 2:
                 System.out.println("What task would you like to remove?");
+                taskInformation.viewTask();
+                taskInformation.removeTask();
                 taskManagerMenu();
                 break;
             case 3:

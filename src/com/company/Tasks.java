@@ -39,7 +39,7 @@ public class Tasks {
     }
 
     public void setDate() {
-        this.date = date;
+        this.date = dateFormat.format(calendar.getTime());
         System.out.println("You created your task on " + dateFormat.format(calendar.getTime()));
     }
 

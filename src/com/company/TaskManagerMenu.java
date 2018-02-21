@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class TaskManagerMenu{
     protected Scanner input1 = new Scanner(System.in);
+    TaskInformation taskInformation = new TaskInformation();
 
     public void taskManagerMenu() {
         System.out.println("Welcome to your TaskManager. \n" +
@@ -18,7 +19,9 @@ public class TaskManagerMenu{
                 " 8. exit");
         switch (input1.nextInt()) {
             case 1:
-
+                //System.out.println("");
+                //TaskInformation taskInformation = new TaskInformation();
+                taskInformation.addTask();
                 taskManagerMenu();
                 break;
             case 2:
@@ -27,6 +30,7 @@ public class TaskManagerMenu{
                 break;
             case 3:
                 System.out.println("Here are your tasks.");
+                taskInformation.viewTask();
                 taskManagerMenu();
                 break;
             case 4:

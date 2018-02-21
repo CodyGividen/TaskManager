@@ -14,12 +14,19 @@ public class Tasks {
     private String completeByDate;
     private String finishByDate;
 
+    public Tasks() {
+        this.title = title;
+        this.date = date;
+        this.details = details;
+        this.completeByDate = completeByDate;
+        this.finishByDate = finishByDate;
+    }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle() {
         this.title = title;
         System.out.println("What is the Title of your task?");
         title = input.nextLine();
@@ -31,7 +38,7 @@ public class Tasks {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate() {
         this.date = date;
         System.out.println("You created your task on " + dateFormat.format(calendar.getTime()));
     }
@@ -40,7 +47,7 @@ public class Tasks {
         return details;
     }
 
-    public void setDetails(String details) {
+    public void setDetails() {
         this.details = details;
         System.out.println("What would you like to add to the details of your task?");
         details = input.nextLine();
@@ -50,7 +57,7 @@ public class Tasks {
         return completeByDate;
     }
 
-    public void setCompleteByDate(String completeByDate) {
+    public void setCompleteByDate() {
         this.completeByDate = completeByDate;
         System.out.println("What would you like the due date of this task to be?");
         completeByDate = dateFormat.format(calendar.getTime());
@@ -60,7 +67,7 @@ public class Tasks {
         return finishByDate;
     }
 
-    public void setFinishByDate(String finishByDate) {
+    public void setFinishByDate() {
         this.finishByDate = finishByDate;
         System.out.println("What date do you need to complete this by?");
         finishByDate = input.nextLine();

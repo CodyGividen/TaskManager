@@ -7,7 +7,6 @@ import java.util.List;
 public class TaskInformation extends Tasks {
     protected static List<TaskInformation> newTask = new ArrayList<TaskInformation>();
     protected List<TaskInformation> completedTasks = new ArrayList<TaskInformation>();
-    protected List<TaskInformation> incompleteTasks = new ArrayList<TaskInformation>();
 
 
     protected void addTask() {
@@ -34,14 +33,18 @@ public class TaskInformation extends Tasks {
                     "Finish by date: " + task.getFinishByDate());
 
         }
+    }
 //    protected void selectViewTasks(){
 //
 //    }
-//    protected void addIncompleteList(){
-//
-//    }
-//    protected void addCompleteList(){
-//
-//    }
+    protected void addIncompleteList(){
+        viewTask();
+    }
+    protected void addCompleteList(){
+        TaskInformation taskInformation = new TaskInformation();
+        viewTask();
+        System.out.println("What task would you like to at to complete?");
+        input.nextInt();
+        completedTasks.add(taskInformation);
     }
 }

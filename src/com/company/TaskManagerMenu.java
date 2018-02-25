@@ -41,12 +41,18 @@ public class TaskManagerMenu{
                 break;
             case 5:
                 System.out.println("What task would you like to add to your complete tasks.");
+                taskInformation.addCompleteList();
+                taskManagerMenu();
                 break;
             case 6:
                 System.out.println("Here are your incomplete tasks.");
+                taskInformation.addIncompleteList();
+                taskManagerMenu();
                 break;
             case 7:
                 System.out.println("Here are your complete tasks.");
+                //taskInformation.completedTasks();
+                taskManagerMenu();
                 break;
             case 8:
                 System.exit(0);

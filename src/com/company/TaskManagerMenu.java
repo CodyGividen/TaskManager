@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TaskManagerMenu{
     protected Scanner input1 = new Scanner(System.in);
-    TaskInformation taskInformation = new TaskInformation();
+    private TaskInformation taskInformation = new TaskInformation();
 
     public void taskManagerMenu() {
         System.out.println("Welcome to your TaskManager. \n" +
@@ -31,8 +31,10 @@ public class TaskManagerMenu{
                 taskManagerMenu();
                 break;
             case 3:
-                System.out.println("Here are your tasks.");
+                System.out.println("Here are your incomplete tasks.");
                 taskInformation.viewTask();
+                System.out.println("Here are your complete tasks.");
+                taskInformation.selectViewTasks();
                 taskManagerMenu();
                 break;
             case 4:
@@ -51,7 +53,7 @@ public class TaskManagerMenu{
                 break;
             case 7:
                 System.out.println("Here are your complete tasks.");
-                //taskInformation.completedTasks();
+                taskInformation.selectViewTasks();
                 taskManagerMenu();
                 break;
             case 8:

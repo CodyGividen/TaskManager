@@ -7,6 +7,7 @@ import java.util.List;
 public class TaskInformation extends Tasks {
     protected static List<TaskInformation> newTask = new ArrayList<TaskInformation>();
     protected List<TaskInformation> completedTasks = new ArrayList<TaskInformation>();
+    //protected TaskInformation taskInformation = new TaskInformation();
 
 
     protected void addTask() {
@@ -31,20 +32,28 @@ public class TaskInformation extends Tasks {
                     "Details: " + task.getDetails() + "\n" +
                     "Start date: " + task.getDate() + "\n" +
                     "Finish by date: " + task.getFinishByDate());
-
         }
     }
-//    protected void selectViewTasks(){
-//
-//    }
-    protected void addIncompleteList(){
-        viewTask();
+    protected void selectViewTasks(){
+        int index = 1;
+        for (Tasks task : completedTasks) {
+            System.out.println(index++ + ". Title: " + task.getTitle() + "\n" +
+                    "Details: " + task.getDetails() + "\n" +
+                    "Start date: " + task.getDate() + "\n" +
+                    "Finish by date: " + task.getFinishByDate() + "\n " +
+                    "finish date:" + task.getDate());
     }
+}
+    protected void addIncompleteList() {
+            viewTask();
+
+        }
     protected void addCompleteList(){
         TaskInformation taskInformation = new TaskInformation();
         viewTask();
         System.out.println("What task would you like to at to complete?");
         input.nextInt();
         completedTasks.add(taskInformation);
+        newTask.remove(input.nextInt() - 1);
     }
 }

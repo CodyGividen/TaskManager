@@ -12,11 +12,10 @@ public class TaskManagerMenu{
                 " 1. Add task \n " +
                 "2. remove task \n" +
                 " 3. View tasks \n" +
-                " 4. Select and view task \n" +
-                " 5. Add task to complete list \n" +
-                " 6. view incomplete tasks \n" +
-                " 7. View complete tasks \n" +
-                " 8. exit");
+                " 4. Add task to complete list \n" +
+                " 5. view incomplete tasks \n" +
+                " 6. View complete tasks \n" +
+                " 7. exit");
         switch (input1.nextInt()) {
             case 1:
                 //System.out.println("");
@@ -38,25 +37,21 @@ public class TaskManagerMenu{
                 taskManagerMenu();
                 break;
             case 4:
-                System.out.println("Select a task you would like to view.");
-                taskManagerMenu();
-                break;
-            case 5:
                 System.out.println("What task would you like to add to your complete tasks.");
                 taskInformation.addCompleteList();
                 taskManagerMenu();
                 break;
-            case 6:
+            case 5:
                 System.out.println("Here are your incomplete tasks.");
                 taskInformation.addIncompleteList();
                 taskManagerMenu();
                 break;
-            case 7:
+            case 6:
                 System.out.println("Here are your complete tasks.");
                 taskInformation.selectViewTasks();
                 taskManagerMenu();
                 break;
-            case 8:
+            case 7:
                 System.exit(0);
                 break;
             default:

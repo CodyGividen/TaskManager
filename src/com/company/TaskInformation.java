@@ -26,24 +26,32 @@ public class TaskInformation extends Tasks {
     }
 
     protected void viewTask() {
-        int index = 1;
-        for (Tasks task : newTask) {
-            System.out.println(index++ + ". Title: " + task.getTitle() + "\n" +
-                    "Details: " + task.getDetails() + "\n" +
-                    "Start date: " + task.getDate() + "\n" +
-                    "Finish by date: " + task.getFinishByDate());
+        if (newTask.isEmpty()) {
+            System.out.println("You have no incomplete tasks at the moment.");
+        } else {
+            int index = 1;
+            for (Tasks task : newTask) {
+                System.out.println(index++ + ". Title: " + task.getTitle() + "\n" +
+                        "Details: " + task.getDetails() + "\n" +
+                        "Start date: " + task.getDate() + "\n" +
+                        "Finish by date: " + task.getFinishByDate());
+            }
         }
     }
-    protected void selectViewTasks(){
-        int index = 1;
-        for (Tasks task : completedTasks) {
-            System.out.println(index++ + ". Title: " + task.getTitle() + "\n" +
-                    "Details: " + task.getDetails() + "\n" +
-                    "Start date: " + task.getDate() + "\n" +
-                    "Finish by date: " + task.getFinishByDate() + "\n " +
-                    "finish date:" + task.getDate());
+    protected void selectViewTasks() {
+        if (completedTasks.isEmpty()) {
+            System.out.println("You have no tasks complete.");
+        } else {
+            int index = 1;
+            for (Tasks task : completedTasks) {
+                System.out.println(index++ + ". Title: " + task.getTitle() + "\n" +
+                        "Details: " + task.getDetails() + "\n" +
+                        "Start date: " + task.getDate() + "\n" +
+                        "Finish by date: " + task.getFinishByDate() + "\n " +
+                        "finish date:" + task.getDate());
+            }
+        }
     }
-}
     protected void addIncompleteList() {
             viewTask();
 

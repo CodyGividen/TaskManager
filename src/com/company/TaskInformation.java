@@ -6,12 +6,12 @@ import java.util.List;
 
 public class TaskInformation extends Tasks {
     protected static List<TaskInformation> newTask = new ArrayList<TaskInformation>();
-    protected List<TaskInformation> completedTasks = new ArrayList<TaskInformation>();
-    //protected TaskInformation taskInformation = new TaskInformation();
+    protected final List<TaskInformation> completedTasks = new ArrayList<TaskInformation>();
+    private static TaskInformation taskInformation = new TaskInformation();
 
 
     protected void addTask() {
-        TaskInformation taskInformation = new TaskInformation();
+        //TaskInformation taskInformation = new TaskInformation();
         taskInformation.setTitle();
         taskInformation.setDetails();
         taskInformation.setDate();
@@ -49,11 +49,11 @@ public class TaskInformation extends Tasks {
 
         }
     protected void addCompleteList(){
-        TaskInformation taskInformation = new TaskInformation();
+//        TaskInformation taskInformation = new TaskInformation();
         viewTask();
         System.out.println("What task would you like to at to complete?");
-        input.nextInt();
         completedTasks.add(taskInformation);
         newTask.remove(input.nextInt() - 1);
+
     }
 }

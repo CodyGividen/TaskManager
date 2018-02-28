@@ -1,31 +1,33 @@
 package com.company;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Scanner;
 
 public class Tasks {
-    protected Scanner input = new Scanner(System.in);
+
+    protected List<Tasks> newTask = new ArrayList<Tasks>();
+    protected final List<Tasks> completedTasks = new ArrayList<Tasks>();
+    private Scanner input = new Scanner(System.in);
     Calendar calendar = Calendar.getInstance();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
-//    private SimpleDateFormat completeDateFormat = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
+    //    private SimpleDateFormat completeDateFormat = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
     private String title;
     private String date;
     private String finishedDate;
     private String details;
-//    private String completeByDate;
+    //    private String completeByDate;
     private String finishByDate;
     private String editTask;
 
-    public Tasks() {
-        this.calendar = calendar;
-        this.dateFormat = dateFormat;
-        this.title = title;
-        this.date = date;
-        this.finishedDate = finishedDate;
-        this.details = details;
-        this.finishByDate = finishByDate;
-        this.editTask = editTask;
+
+    public Tasks () {
+        setTitle();
+        setDetails();
+        setDate();
+        setFinishByDate();
     }
 
     //
@@ -43,7 +45,6 @@ public class Tasks {
     }
 
     public void setTitle() {
-        this.title = title;
         System.out.println("What is the Title of your task?");
         title = input.nextLine();
 
@@ -64,7 +65,6 @@ public class Tasks {
     }
 
     public void setDetails() {
-        this.details = details;
         System.out.println("What would you like the details of your task to be?");
         details = input.nextLine();
     }
@@ -84,7 +84,6 @@ public class Tasks {
     }
 
     public void setFinishByDate() {
-        this.finishByDate = finishByDate;
         System.out.println("What date do you need to complete this by?");
         finishByDate = input.nextLine();
     }

@@ -1,28 +1,30 @@
 package com.company;
 
 
+import javax.swing.plaf.synth.SynthEditorPaneUI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public class TaskInformation extends Tasks {
-    protected static List<TaskInformation> newTask = new ArrayList<TaskInformation>();
-    protected final List<TaskInformation> completedTasks = new ArrayList<TaskInformation>();
+public class TaskInformation  {
+    protected static List<Tasks> newTask = new ArrayList<Tasks>();
+    protected final List<Tasks> completedTasks = new ArrayList<Tasks>();
     private static TaskInformation taskInformation = new TaskInformation();
-    private static Tasks tasks = new Tasks();
+    private Scanner scanner = new Scanner(System.in);
+//    private static Tasks tasks = new Tasks();
+
+
 
 
     protected void addTask() {
         //TaskInformation taskInformation = new TaskInformation();
-        taskInformation.setTitle();
-        taskInformation.setDetails();
-        taskInformation.setDate();
-        taskInformation.setFinishByDate();
-        newTask.add(taskInformation);
+        Tasks task = new Tasks();
+        newTask.add(task);
     }
 
 
     protected void removeTask() {
-        newTask.remove(input.nextInt() - 1);
+        newTask.remove(scanner.nextInt() - 1);
 
     }
 
@@ -63,42 +65,65 @@ public class TaskInformation extends Tasks {
 //        TaskInformation taskInformation = new TaskInformation();
         viewTask();
         System.out.println("What task would you like to at to complete?");
-        completedTasks.add(taskInformation);
+        int complete = scanner.nextInt();
+        Tasks task = newTask.get(complete - 1);
+        completedTasks.add(task);
         //taskInformation.setFinishedDate();
-        newTask.remove(input.nextInt() - 1);
+        newTask.remove(complete - 1);
 
     }
 
     protected void editTask() {
+
         System.out.println("What task would you like to Edit?");
+        int edit = scanner.nextInt();
 
         System.out.println("What would you like to edit in your task? \n " +
                 "1. Title \n " +
                 "2. Details \n " +
                 "3. Finish By Date \n " +
                 "4. Exit Editor");
-        switch (input.nextLine()) {
-            case "1":
+        int selection = scanner.nextInt();
+        scanner.nextLine();
+        switch (selection) {
+            case 1:
                 //System.out.println();
-                taskInformation.setTitle();
-                editTask();
+                newTask.get(edit - 1).setTitle();
                 break;
-            case "2":
+            case 2:
                 //System.out.println();
-                taskInformation.setDetails();
-                editTask();
+                newTask.get(edit - 1).setDetails();
+                //editTask();
                 break;
-            case "3":
-               // System.out.println();
-                taskInformation.setFinishByDate();
-                editTask();
+            case 3:
+                // System.out.println();
+                newTask.get(edit - 1).setFinishByDate();
+                //editTask();
                 break;
-            case "4":
+            case 4:
                 break;
             default:
                 System.out.println("Try again!!");
+                //editTask();
+                break;
+        }
+        tryAgainOrExit();
+
+    }
+
+    private void tryAgainOrExit() {
+        System.out.println("Would you like to edit something else?  Y or N");
+        switch (scanner.nextLine().toUpperCase())
+        {
+            case "Y":
+                viewTask();
                 editTask();
                 break;
+            case "N":
+                break;
+            default:
+                System.out.print("Really!!! Come on try typing a Y or a N.");
+                tryAgainOrExit();
         }
     }
 }

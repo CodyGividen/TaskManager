@@ -34,10 +34,10 @@ public class Tasks {
     public void setMonth() {//Set month as int
         try {
             System.out.println(ConsoleColors.YELLOW + "What month would you like this to be due on?" + ConsoleColors.RESET);
-            vaidDateDay = false;
-            int month = input.nextInt();
+            vaidDateMonth = false;
+            month = input.nextInt();
             if(month <= 12 && month >=1) {
-                vaidDateDay = true;
+                vaidDateMonth = true;
                 } else {
                     System.out.println(ConsoleColors.RED + ConsoleColors.RED_BOLD + "Try again!!" + ConsoleColors.RESET);
                     setMonth();
@@ -57,15 +57,12 @@ public class Tasks {
         try {
             System.out.println(ConsoleColors.YELLOW + "What day would you like this to be due on?" + ConsoleColors.RESET);
             day = input.nextInt();
-            vaidDateMonth = false;
-            if ((month == 1) || (month == 3) || (month == 5) || (month == 7) || (month == 8) || (month == 10) || (month == 12) && (day <= 31)) {
-                vaidDateMonth = true;
+            vaidDateDay = false;
+            if (((month == 1) || (month == 3) || (month == 5) || (month == 7) || (month == 8) || (month == 10) || (month == 12)) && day <= 31) {
                 vaidDateDay = true;
             } else if ((month == 2) && (day <= 28)) {
-                vaidDateMonth = true;
                 vaidDateDay = true;
-            } else if ((month == 4) || (month == 6) || (month == 9) || (month == 11) && (day <= 30)) {
-                vaidDateMonth = true;
+            } else if (((month == 4) || (month == 6) || (month == 9) || (month == 11)) && (day <= 30)) {
                 vaidDateDay = true;
             }else{
                 System.out.println(ConsoleColors.RED + ConsoleColors.RED_BOLD + "Try again!!" + ConsoleColors.RESET);

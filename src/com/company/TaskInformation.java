@@ -7,9 +7,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TaskInformation  {
-    protected static List<Tasks> newTask = new ArrayList<Tasks>();
+    protected List<Tasks> newTask = new ArrayList<Tasks>();
     protected final List<Tasks> completedTasks = new ArrayList<Tasks>();
-    private static TaskInformation taskInformation = new TaskInformation();
     private Scanner scanner = new Scanner(System.in);
 
 
@@ -49,7 +48,7 @@ public class TaskInformation  {
                 System.out.println(ConsoleColors.PURPLE + index++ + ". Title: " + task.getTitle() + "\n" +
                         "Details: " + task.getDetails() + "\n" +
                         "Start date: " + task.getDate() + "\n" +
-                        "Finish by date: " + task.getFinishByDate() + ConsoleColors.RESET + ConsoleColors.RED + "\n---------------------------------------" + ConsoleColors.RESET);
+                        "Finish by date: " + task.getMonth() + "/" + task.getDay() + ConsoleColors.RESET + ConsoleColors.RED + "\n---------------------------------------" + ConsoleColors.RESET);
             }
         }
     }

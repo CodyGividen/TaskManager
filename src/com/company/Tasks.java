@@ -35,7 +35,7 @@ public class Tasks {
         try {
             System.out.println(ConsoleColors.YELLOW + "What month would you like this to be due on?" + ConsoleColors.RESET);
             vaidDateMonth = false;
-            month = input.nextInt();
+            month = Integer.parseInt(input.nextLine());
             if(month <= 12 && month >=1) {
                 vaidDateMonth = true;
                 } else {
@@ -56,7 +56,7 @@ public class Tasks {
     public void setDay() {//set day as int
         try {
             System.out.println(ConsoleColors.YELLOW + "What day would you like this to be due on?" + ConsoleColors.RESET);
-            day = input.nextInt();
+            day = Integer.parseInt(input.nextLine());
             vaidDateDay = false;
             if (((month == 1) || (month == 3) || (month == 5) || (month == 7) || (month == 8) || (month == 10) || (month == 12)) && day <= 31) {
                 vaidDateDay = true;
@@ -66,7 +66,6 @@ public class Tasks {
                 vaidDateDay = true;
             }else{
                 System.out.println(ConsoleColors.RED + ConsoleColors.RED_BOLD + "Try again!!" + ConsoleColors.RESET);
-                input.nextLine();
                 setDay();
             }
         }catch (InputMismatchException ime) {
